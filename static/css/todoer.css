@@ -1,0 +1,20 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
+
+body {
+    font-family: 'Nunito', sans-serif;
+}
+
+
+.task-complete-mark {
+    margin-left: 1em;
+    color: #212529;
+}
+
+.task-delete-mark {
+    margin-right: 1em;
+    color: #ce005c;
+}
+
+.task-title span {
+    color: #212529;
+}

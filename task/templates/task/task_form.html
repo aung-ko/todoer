@@ -1,0 +1,26 @@
+{% extends 'layouts/base.html' %}
+{% load django_bootstrap5 %}
+
+{% block title %}
+{{ title_text }}
+{% endblock title %}
+
+
+{% block content %}
+
+
+<div class="form-group">
+    {% include 'layouts/form_errors.html' %}
+
+    <form action="" method="POST">
+        {% csrf_token %}
+        {% bootstrap_form form %}
+        {% bootstrap_button button_type="submit" content=button_text %}
+    </form>
+</div>
+
+<div class="text-muted pt-3">
+    <a href="{% url 'task:index' %}">&lt;&lt; Go back</a>
+</div>
+
+{% endblock content %}

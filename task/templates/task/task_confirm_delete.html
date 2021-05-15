@@ -1,0 +1,34 @@
+{% extends 'layouts/base.html' %}
+
+
+{% block title %}
+Delete Task?
+{% endblock title %}
+
+
+{% block content %}
+
+<figure class="text-left">
+    <h1 class="display-5">" {{ task.title }} "</h1>
+</figure>
+
+<div class="form-group">
+    <div class="alert alert-warning">
+        <h4 class="alert-heading">Warning!</h4>
+        <p class="mb-0">Are you sure want to delete this task? This action can't be undone.
+            <a href="{% url 'task:index' %}" class="alert-link">Go back to tasks.</a>.</p>
+    </div>
+
+    <form action="" method="POST">
+        {% csrf_token %}
+
+        <input type="submit" value="Delete" class="form-control btn btn-lg btn-danger">
+
+    </form>
+</div>
+
+<div class="text-muted pt-3">
+    <a href="{% url 'task:index' %}">&lt;&lt; Go back</a>
+</div>
+
+{% endblock content %}

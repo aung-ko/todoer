@@ -1,0 +1,10 @@
+db.sqlite3
+
+.idea
+.vscode
+
+# statice
+static_root/
+# Python compiled byte code
+__pycache__/
+*.pyc
