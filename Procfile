@@ -1,0 +1,1 @@
+web: gunicorn src.todoer.wsgi --log-file -
