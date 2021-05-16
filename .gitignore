@@ -2,9 +2,13 @@ db.sqlite3
 
 .idea
 .vscode
+.env
 
 # statice
 static_root/
 # Python compiled byte code
 __pycache__/
 *.pyc
+
+# database
+*.sqlite3

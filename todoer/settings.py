@@ -20,11 +20,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-p0jkb=nwv_hyv(v5)oe9@3$hz-s^osj6f@9gyirk4o#l^lbcoz'
+# SECURITY WARNING: keep the secret key used in production secret!SECRET_KEY = 'django-insecure-p0jkb=nwv_hyv(v5)oe9@3$hz-s^osj6f@9gyirk4o#l^lbcoz'
+SECRET_KEY = os.environ['TODOER_SECRET_KEY']
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.environ.get('TODOER_DEBUG', '') != 'False'
 
 ALLOWED_HOSTS = ['127.0.0.1', 'https://todoer-demo.herokuapp.com/']
 
@@ -45,6 +45,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -124,7 +125,9 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 STATIC_ROOT = os.path.join(BASE_DIR, 'static_root')
-STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.StaticFilesStorage'
+# Simplified static file serving.
+# https://warehouse.python.org/project/whitenoise/
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
@@ -140,3 +143,9 @@ BOOTSTRAP5 = {
     },
     'success_css_class': '',
 }
+
+# Heroku: Update database configuration from $DATABASE_URL.
+import dj_database_url
+
+db_from_env = dj_database_url.config(conn_max_age=500)
+DATABASES['default'].update(db_from_env)
