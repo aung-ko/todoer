@@ -12,10 +12,11 @@ Register
 
 
 <div class="form-group">
+    {% bootstrap_messages %}
     <form action="" method="post" class="form">
         {% csrf_token %}
         {% bootstrap_form form %}
-        {% bootstrap_button button_type="submit" content="Register" %}
+        {% bootstrap_button button_type='submit' content='Register' %}
     </form>
 
 </div>

@@ -22,9 +22,9 @@ poetry shell
 poetry install
 ```
 
-migrate, create superuser and run project via
+migrate, create superuser and run project
 ```
-python src/manage.py migrate
-python src/manage.py createsuperuser
-python src/manage.py runserver
+python manage.py migrate
+python manage.py createsuperuser
+python manage.py runserver
 ```
