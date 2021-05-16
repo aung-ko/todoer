@@ -1,1 +1,1 @@
-web: gunicorn src.todoer.wsgi --log-file -
+web: gunicorn todoer.wsgi --log-file -
