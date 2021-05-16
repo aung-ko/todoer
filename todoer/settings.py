@@ -25,7 +25,7 @@ SECRET_KEY = os.environ['TODOER_SECRET_KEY']
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ.get('TODOER_DEBUG', '') != 'False'
 
-ALLOWED_HOSTS = ['127.0.0.1', 'https://todoer-demo.herokuapp.com/']
+ALLOWED_HOSTS = ['127.0.0.1', 'todoer-demo.herokuapp.com']
 
 
 # Application definition
