@@ -7,7 +7,7 @@ Simple but fully functional, built with Django 3.2 and Bootstrap for UI.
 ![Login](/demo-images/01_login.png)![Task list](/demo-images/02_task_list.png)![Create Task](/demo-images/03_create_task.png)
 
 ## Live Demo
-https://todoer.herokuapp.com
+https://todoer-demo.herokuapp.com/
 
 
 ## Download & run locally
